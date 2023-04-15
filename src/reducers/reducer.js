@@ -1,4 +1,5 @@
 function reducer(state,action){
+  
   if(action.type === "Increment"){
     return state+1;
   }
