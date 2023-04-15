@@ -5,19 +5,17 @@ import action from '../actions/action.js';
 import './App.css';
 
 const storeData = store(reducer);
-
-const inc = action.incrementAction;
-const dec = action.decrementAction;
-
-const increment = () => {
-  storeData.dispatch(inc);
-}
-
-const decrement = () => {
-  storeData.dispatch(dec);
-}
-
+console.log('state: ',storeData.getState());
 function App() {
+  const increment = () => {
+    storeData.dispatch(action.incrementAction);
+  };
+
+  const decrement = () => {
+    storeData.dispatch(action.decrementAction);
+    console.log("dec");
+  };
+  
   return (
     <div>
       <h1>{storeData.getState()}</h1>
