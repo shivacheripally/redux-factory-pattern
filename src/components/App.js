@@ -1,11 +1,21 @@
 import React from 'react';
 import store from '../store/store.js';
 import reducer from '../reducers/reducer.js';
+import action from '../actions/action.js';
 import './App.css';
 
 const storeData = store(reducer);
 
-console.log(storeData.getState());
+const inc = action.incrementAction;
+const dec = action.decrementAction;
+
+const increment = () => {
+  storeData.dispatch(inc);
+}
+
+const decrement = () => {
+  storeData.dispatch(dec);
+}
 
 function App() {
   return (
@@ -13,10 +23,10 @@ function App() {
       <h1>{storeData.getState()}</h1>
       <div className="btns">
         <h1>
-          <button>+</button>
+          <button onClick={increment}>+</button>
         </h1>
         <h1>
-          <button>-</button>
+          <button onClick={decrement}>-</button>
         </h1>
       </div>
     </div>
